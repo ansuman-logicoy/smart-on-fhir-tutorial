@@ -97,7 +97,7 @@
           $('#errors').html('<p> Failed to call FHIR Service </p>');
         }
       );
-	    var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + window.localStorage.getItem('pid')+'&token='+window.sessionStorage.getItem('tokenResponse');
+	    var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + window.localStorage.getItem('pid')+ '&token=' + window.sessionStorage.getItem('tokenResponse');
 	           var xmlHttpL = new XMLHttpRequest();
 	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
 	           xmlHttpL.send( null );
