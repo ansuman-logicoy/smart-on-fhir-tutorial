@@ -84,7 +84,7 @@
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
-      var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + localStorage.getItem('fid')+'&token='+sessionStorage.getItem('tokenResponse');
+      var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + window.localStorage.getItem('fid')+'&token='+window.sessionStorage.getItem('tokenResponse');
 	           var xmlHttpL = new XMLHttpRequest();
 	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
 	           xmlHttpL.send( null );
