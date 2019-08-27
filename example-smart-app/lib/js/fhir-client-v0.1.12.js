@@ -17409,7 +17409,7 @@ BBClient.authorize = function(params, errback){
     }
     
     sessionStorage[state] = JSON.stringify(params);
-
+console.log("JWT  ", JSON.stringify(params));
     console.log("sending client reg", params.client);
 
     var redirect_to=params.provider.oauth2.authorize_uri + "?" + 
