@@ -19,8 +19,9 @@
          var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + patient.id;
 	      
 	           var xmlHttpL = new XMLHttpRequest();
-	      xmlHttpL.setRequestHeader("token", atkn.id_token);
+	     
 	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
+	       xmlHttpL.setRequestHeader("token", atkn.id_token);
 	           xmlHttpL.send( null );
 	           var s1=xmlHttpL.responseText ;
         var obv = smart.patient.api.fetchAll({
