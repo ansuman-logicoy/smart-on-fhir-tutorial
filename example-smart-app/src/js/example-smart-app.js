@@ -13,7 +13,7 @@
         var pt = patient.read();
        
         console.log(patient.id);
-        sessionStorage.setItem('pid',patient.id);
+        localStorage.setItem('pid',patient.id);
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
