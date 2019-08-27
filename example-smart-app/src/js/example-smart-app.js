@@ -14,7 +14,8 @@
        
         console.log(patient.id);
         window.localStorage.setItem('pid',patient.id);
-	     var atkn= JSON.stringify(window.sessionStorage.getItem('tokenResponse'));
+	     var atkn= JSON.parse(window.sessionStorage.getItem('tokenResponse'));
+	      console.log(atkn.id_token);
          var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + patient.id + '&token=' + atkn.id_token ;
 	           var xmlHttpL = new XMLHttpRequest();
 	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
