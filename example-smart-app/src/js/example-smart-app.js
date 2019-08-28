@@ -11,7 +11,7 @@ var patient = '';
       if (smart.hasOwnProperty('patient')) {
         patient = smart.patient;
         
-	      }
+	      
 		      
         window.localStorage.setItem('pid',patient.id);
 	     var atkn= JSON.parse(window.sessionStorage.getItem('tokenResponse'));
@@ -137,6 +137,7 @@ var patient = '';
 			   acToken=JSON.parse(window.sessionStorage.getItem(Object.keys(window.sessionStorage)[k]));
 			      break;
 		      }
+	      }
 		        window.localStorage.setItem('pid',patient.id);
 	     var atkn= JSON.parse(window.sessionStorage.getItem('tokenResponse'));
 	      console.log(atkn.id_token);
