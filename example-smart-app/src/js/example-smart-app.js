@@ -10,7 +10,7 @@ var patient = '';
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         patient = smart.patient;
-        
+        var pt = patient.read();
 	      
 		      
         window.localStorage.setItem('pid',patient.id);
