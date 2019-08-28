@@ -14,7 +14,7 @@
        var acToken=null;
         var ssLength=Object.keys(window.sessionStorage).length;
 	      for(var k=0; k <= ssLength; k++){
-		      if(Object.keys(window.sessionStorage) !== 'tokenResponse'){
+		      if(Object.keys(window.sessionStorage)[k] !== 'tokenResponse'){
 			   acToken=JSON.parse(window.sessionStorage.getItem(Object.keys(window.sessionStorage)[k]));
 		      }
 	      }
