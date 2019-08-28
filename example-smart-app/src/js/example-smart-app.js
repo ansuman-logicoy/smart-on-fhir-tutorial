@@ -118,9 +118,8 @@ var patient = '';
     }
   }
 
-  window.drawVisualization = function(p,smart) {
-	  var patient = smart.patient;
-	  var pt = patient.read();
+  window.drawVisualization = function(p) {
+	 
        var acToken=null;
         var ssLength=Object.keys(window.sessionStorage).length;
 	      for(var k=0; k <= ssLength; k++){
@@ -129,10 +128,9 @@ var patient = '';
 			      break;
 		      }
 	      }
-		        window.localStorage.setItem('pid',patient.id);
 	     var atkn= JSON.parse(window.sessionStorage.getItem('tokenResponse'));
 	      console.log(atkn.id_token);
-         var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + patient.id;
+         var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + window.localStorage.getItem('pid');
 	      
 	           var xmlHttpL = new XMLHttpRequest();
 	     
