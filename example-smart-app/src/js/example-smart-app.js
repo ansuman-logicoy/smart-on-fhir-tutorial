@@ -27,7 +27,7 @@
 	           var xmlHttpL = new XMLHttpRequest();
 	     
 	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
-	       xmlHttpL.setRequestHeader("token", atkn.id_token);
+	       xmlHttpL.setRequestHeader("token", atkn.access_token);
 	      xmlHttpL.setRequestHeader("baseUrl", acToken.server);
 	           xmlHttpL.send( null );
 	           var s1=xmlHttpL.responseText ;
