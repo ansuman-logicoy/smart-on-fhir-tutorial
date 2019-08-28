@@ -14,17 +14,7 @@ var patient = '';
 	      
 		      
         window.localStorage.setItem('pid',patient.id);
-	     var atkn= JSON.parse(window.sessionStorage.getItem('tokenResponse'));
-	      console.log(atkn.id_token);
-         var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + patient.id;
-	      
-	           var xmlHttpL = new XMLHttpRequest();
-	     
-	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
-	       xmlHttpL.setRequestHeader("token", atkn.access_token);
-	      xmlHttpL.setRequestHeader("baseUrl", acToken.server);
-	           xmlHttpL.send( null );
-	           var s1=xmlHttpL.responseText ;
+	  
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
