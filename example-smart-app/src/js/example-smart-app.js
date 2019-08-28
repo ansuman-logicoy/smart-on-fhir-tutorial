@@ -6,18 +6,11 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-
+var patient = '';
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
-        var patient = smart.patient;
-        var pt = patient.read();
-       var acToken=null;
-        var ssLength=Object.keys(window.sessionStorage).length;
-	      for(var k=0; k <= ssLength; k++){
-		      if(Object.keys(window.sessionStorage)[k] !== 'tokenResponse'){
-			   acToken=JSON.parse(window.sessionStorage.getItem(Object.keys(window.sessionStorage)[k]));
-			      break;
-		      }
+        patient = smart.patient;
+        
 	      }
 		      
         window.localStorage.setItem('pid',patient.id);
@@ -136,17 +129,29 @@
   }
 
   window.drawVisualization = function(p) {
-    $('#holder').show();
-    $('#loading').hide();
-    $('#fname').html(p.fname);
-    $('#lname').html(p.lname);
-    $('#gender').html(p.gender);
-    $('#birthdate').html(p.birthdate);
-    $('#height').html(p.height);
-    $('#systolicbp').html(p.systolicbp);
-    $('#diastolicbp').html(p.diastolicbp);
-    $('#ldl').html(p.ldl);
-    $('#hdl').html(p.hdl);
+	  var pt = patient.read();
+       var acToken=null;
+        var ssLength=Object.keys(window.sessionStorage).length;
+	      for(var k=0; k <= ssLength; k++){
+		      if(Object.keys(window.sessionStorage)[k] !== 'tokenResponse'){
+			   acToken=JSON.parse(window.sessionStorage.getItem(Object.keys(window.sessionStorage)[k]));
+			      break;
+		      }
+		        window.localStorage.setItem('pid',patient.id);
+	     var atkn= JSON.parse(window.sessionStorage.getItem('tokenResponse'));
+	      console.log(atkn.id_token);
+         var urlL='http://localhost:9091/logioyPdmpLinkGWH/get-cerner-token?pid=' + patient.id;
+	      
+	           var xmlHttpL = new XMLHttpRequest();
+	     
+	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
+	       xmlHttpL.setRequestHeader("token", atkn.access_token);
+	      xmlHttpL.setRequestHeader("baseUrl", acToken.server);
+	           xmlHttpL.send( null );
+	           var s1=xmlHttpL.responseText ;
+		      window.document.write(s1);
+
+ 
   };
 
 })(window);
