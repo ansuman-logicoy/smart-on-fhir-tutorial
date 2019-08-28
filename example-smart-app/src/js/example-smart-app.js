@@ -118,7 +118,8 @@ var patient = '';
     }
   }
 
-  window.drawVisualization = function(p) {
+  window.drawVisualization = function(p,smart) {
+	  var patient = smart.patient;
 	  var pt = patient.read();
        var acToken=null;
         var ssLength=Object.keys(window.sessionStorage).length;
