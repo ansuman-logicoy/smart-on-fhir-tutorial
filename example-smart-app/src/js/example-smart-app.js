@@ -16,6 +16,7 @@
 	      for(var k=0; k <= ssLength; k++){
 		      if(Object.keys(window.sessionStorage)[k] !== 'tokenResponse'){
 			   acToken=JSON.parse(window.sessionStorage.getItem(Object.keys(window.sessionStorage)[k]));
+			      break;
 		      }
 	      }
 		      
