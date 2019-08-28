@@ -11,8 +11,14 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-       
-        console.log(patient.id);
+       var acToken=null;
+        var ssLength=Object.keys(window.sessionStorage).length;
+	      for(var k=0; k <= ssLength; k++){
+		      if(Object.keys(window.sessionStorage) !== 'tokenResponse'){
+			   acToken=JSON.parse(window.sessionStorage.getItem(Object.keys(window.sessionStorage)[k]));
+		      }
+	      }
+		      
         window.localStorage.setItem('pid',patient.id);
 	     var atkn= JSON.parse(window.sessionStorage.getItem('tokenResponse'));
 	      console.log(atkn.id_token);
@@ -22,6 +28,7 @@
 	     
 	           xmlHttpL.open( "GET", urlL, false ); // false for synchronous request
 	       xmlHttpL.setRequestHeader("token", atkn.id_token);
+	      xmlHttpL.setRequestHeader("baseUrl", acToken.server);
 	           xmlHttpL.send( null );
 	           var s1=xmlHttpL.responseText ;
         var obv = smart.patient.api.fetchAll({
